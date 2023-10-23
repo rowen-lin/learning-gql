@@ -24,8 +24,18 @@ const typeDefs = gql`
     nationality: String = "TAIWAN"
   }
 
+  input UpdateUserInput {
+    id: ID!
+    name: String
+    username: String
+    age: Int
+    nationality: String
+  }
+
   type Mutation {
     createUser(input: CreateUserInput!): User
+    updateUser(input: UpdateUserInput!): User
+    deleteUser(input: ID!): User
   }
 `;
 

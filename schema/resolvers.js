@@ -20,5 +20,22 @@ export const resolvers = {
       UserList.push(user);
       return user;
     },
+    updateUser: (parent, args) => {
+      const { id, name, username, age, nationality } = args.input;
+      let userUpdated;
+      UserList.forEach((user) => {
+        if (user.id === Number(id)) {
+          name ? (user.name = name) : user.name;
+          username ? (user.username = username) : user.username;
+          age ? (user.age = age) : user.age;
+          nationality ? (user.nationality = nationality) : user.nationality;
+          userUpdated = user;
+        }
+      });
+      return userUpdated;
+    },
+    deleteUser: (parent, args) => {
+      const id = args.id;
+    },
   },
 };
