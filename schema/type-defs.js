@@ -21,7 +21,7 @@ const typeDefs = gql`
     username: String!
     age: Int!
     # default use taiwan
-    nationality: String = "TAIWAN"
+    nationality: Nationality = TAIWAN
   }
 
   input UpdateUserInput {
@@ -35,7 +35,17 @@ const typeDefs = gql`
   type Mutation {
     createUser(input: CreateUserInput!): User
     updateUser(input: UpdateUserInput!): User
-    deleteUser(input: ID!): User
+    deleteUser(id: ID!): User
+  }
+
+  enum Nationality {
+    TAIWAN
+    CANADA
+    BRAZIL
+    INDIA
+    GERMANY
+    JAPAN
+    HONGKONG
   }
 `;
 
